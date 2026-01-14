@@ -1,33 +1,86 @@
-HELP.md
+############################
+# Java / JVM
+############################
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# JVM crash logs
+hs_err_pid*
+
+############################
+# Maven / Gradle
+############################
 target/
+build/
 .mvn/wrapper/maven-wrapper.jar
+**/.gradle
+
+# Permitir target/build dentro de src (casos específicos)
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### STS ###
+############################
+# Node / Frontend
+############################
+node_modules/
+
+############################
+# IDEs e Editores
+############################
+
+# Eclipse / STS
+**/.project
+**/.classpath
+**/.settings/
+**/.factorypath
+**/.tern-project
 .apt_generated
-.classpath
-.factorypath
-.project
-.settings
 .springBeans
 .sts4-cache
+.metadata/
+bin/
+blog/bin/
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 .idea
-*.iws
 *.iml
+*.iws
 *.ipr
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
+
+############################
+# Mobile / Java ME
+############################
+.mtj.tmp/
+
+############################
+# Arquivos temporários / backup
+############################
+*.bak
+*.ini
+
+############################
+# Chaves e credenciais
+############################
+*.pem
+*.ppk
+
+############################
+# Outros
+############################
+HELP.md
