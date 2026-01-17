@@ -172,4 +172,47 @@ Conceitos fundamentais:
 
 ---
 
+### Aula 34 – Entendendo Annotations
+
+Annotations são usadas para **configurar e definir comportamentos** no Spring sem a necessidade de muitas configurações manuais.
+
+* **@SpringBootApplication**
+  Annotation principal da aplicação. Inicializa o Spring Boot e carrega todo o contexto da aplicação (configurações, beans, componentes, etc.).
+
+* **@RestController**
+  Indica que a classe é um controller REST. Os métodos retornam diretamente dados no corpo da resposta HTTP (geralmente JSON).
+
+* **@RequestMapping**
+  Associa uma URL a uma classe ou método, definindo o caminho base ou o endpoint que será acessado.
+
+* **@PathVariable**
+  Indica que um valor presente na URL deve ser capturado e usado como parâmetro no método.
+
+---
+
+### Aula 37 – Tratamento de Exceções
+
+O Spring oferece mecanismos para centralizar e padronizar o tratamento de erros da aplicação.
+
+* **@ControllerAdvice**
+  Permite centralizar o tratamento de exceções. É aplicado globalmente quando nenhum controller define um tratamento mais específico.
+
+* **@ExceptionHandler**
+  Define um método responsável por tratar uma exceção específica dentro de um controller ou em um `@ControllerAdvice`.
+
+* **@ResponseStatus**
+  Define qual status HTTP deve ser retornado quando um método é executado ou quando uma exceção ocorre.
+
+---
+
+### Aula 46 – Injeção de Dependências
+
+A Injeção de Dependências permite que o Spring gerencie a criação e o ciclo de vida dos objetos da aplicação.
+
+* **@Service**
+  Indica uma classe de serviço, onde normalmente fica a lógica de negócio. Permite que o Spring a gerencie e injete em outros componentes.
+
+* **@Autowired**
+  Instrui o Spring a injetar automaticamente uma dependência em uma classe, evitando a criação manual de objetos.
+
 
