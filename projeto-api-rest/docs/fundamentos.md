@@ -227,3 +227,41 @@ Principais conceitos:
 
 * **@GetMapping, @PostMapping, @PutMapping, @DeleteMapping**
   Especializações que tornam o código mais limpo, semântico e seguro.
+
+---
+
+## Sessão 8 – Trabalhando com Logs no Spring Boot
+
+### Aula 57 – O que são logs e qual sua importância
+
+Logs são **registros detalhados** do que acontece dentro da aplicação. São fundamentais para:
+
+* Diagnóstico de erros
+* Monitoramento do sistema
+* Auditoria
+* Manutenção e análise de comportamento da aplicação em produção
+
+No Spring Boot, o uso correto de logs ajuda a identificar falhas rapidamente e entender o fluxo da aplicação.
+
+#### Níveis de Log
+
+* **TRACE**
+  Nível mais detalhado. Registra praticamente tudo, incluindo detalhes internos do sistema. Pouco utilizado em produção.
+
+* **DEBUG**
+  Voltado para desenvolvimento. Mostra informações detalhadas do fluxo da aplicação para depuração.
+
+* **INFO**
+  Registra eventos importantes do funcionamento normal da aplicação.
+
+* **WARN**
+  Indica situações inesperadas ou potencialmente problemáticas, mas que não interrompem a execução.
+
+* **ERROR**
+  Indica falhas que impedem uma operação de ser concluída corretamente.
+
+* **FATAL**
+  Erro grave que pode causar a interrupção total da aplicação.
+
+---
+
