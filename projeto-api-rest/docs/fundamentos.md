@@ -1,218 +1,229 @@
 # Curso: Spring Boot 2026 – REST APIs do Zero à AWS e GCP com Java e Docker
 
+---
+
 ## Sessão 2 – Fundamentos Teóricos de REST
 
 ### Aula 1 – O que são Web Services?
-Web Services são **serviços de software reutilizáveis** disponibilizados através do protocolo **HTTP**, que permitem a comunicação entre sistemas heterogêneos.
 
-Eles podem ser consumidos por:
-- Navegadores
-- Ferramentas como Postman ou Insomnia
-- Outros sistemas ou aplicações
+Web Services são **serviços de software reutilizáveis** disponibilizados através do protocolo **HTTP**, permitindo a comunicação entre sistemas heterogêneos.
 
-Em essência, são serviços que expõem funcionalidades ou dados pela web de forma padronizada.
+Podem ser consumidos por:
+
+* Navegadores
+* Ferramentas como Postman ou Insomnia
+* Outros sistemas ou aplicações
+
+Em essência, expõem funcionalidades ou dados pela web de forma padronizada.
 
 ---
 
 ### Aula 2 – SOAP x REST
 
 #### SOAP
-- Protocolo formal de troca de mensagens baseado em **XML**
-- Estrutura rígida e fortemente padronizada
-- Uso de contratos formais (**WSDL**)
-- Pode utilizar diferentes protocolos (HTTP, SMTP, TCP, etc.)
-- Amplamente utilizado em sistemas legados e ambientes corporativos (bancos, governo)
+
+* Protocolo formal baseado em **XML**
+* Estrutura rígida e fortemente padronizada
+* Uso de contratos formais (**WSDL**)
+* Suporte a múltiplos protocolos (HTTP, SMTP, TCP, etc.)
+* Comum em sistemas legados e ambientes corporativos
 
 #### REST
-- Estilo arquitetural baseado em **HTTP**
-- Uso correto dos métodos HTTP:
-  - GET → buscar
-  - POST → criar
-  - PUT → atualizar
-  - DELETE → remover
-- Recursos identificados por **URLs**
-- Comunicação **stateless**
-- Uso comum de **JSON**
-- Mais leve, eficiente e com melhor desempenho quando comparado ao SOAP
 
-#### Conceitos relacionados
-- **API**: Interface que define como um software pode ser acessado
-- **Web Service**: API acessível pela web, geralmente via HTTP
-- **REST**: Estilo arquitetural para criação de Web Services escaláveis
-- **SOAP**: Protocolo formal para Web Services baseado em XML
+* Estilo arquitetural baseado em **HTTP**
+* Uso correto dos métodos HTTP (GET, POST, PUT, DELETE)
+* Recursos identificados por **URLs**
+* Comunicação **stateless**
+* Uso comum de **JSON**
+* Mais leve e performático em comparação ao SOAP
 
 ---
 
 ### Aula 3 – O que é REST?
-REST (*Representational State Transfer*) é um conjunto de **restrições arquiteturais** para o desenvolvimento de sistemas distribuídos.
+
+REST (*Representational State Transfer*) define um conjunto de **restrições arquiteturais** para sistemas distribuídos.
 
 Principais restrições:
-- **Cliente-Servidor**: separação clara de responsabilidades
-- **Stateless**: o servidor não mantém estado do cliente
-- **Cache**: respostas podem ser cacheáveis
-- **Interface uniforme**:
-  - Identificação de recursos via URI
-  - Manipulação por representações
-  - Mensagens auto descritivas
-- **Sistema em camadas**
-- **Suporte a múltiplos formatos**: JSON, XML, CSV, TXT, HTML, PDF, binário, entre outros
 
-#### Vantagens
-- Arquitetura leve
-- Melhor desempenho
-- Desenvolvimento mais rápido e simples
+* Cliente-Servidor
+* Stateless
+* Cache
+* Interface uniforme
+* Sistema em camadas
+* Suporte a múltiplos formatos de representação
 
 ---
 
 ### Aula 8 – Tipos de Parâmetros
-- **Path Params**: obrigatórios, identificam recursos específicos na URL
-- **Query Params**: opcionais, usados para filtros, ordenação e paginação
-- **Header Params**: enviados no cabeçalho HTTP (metadados, autenticação, cache, idioma)
-- **Body Params**: envio de dados para criação ou atualização de recursos
+
+* **Path Params**
+* **Query Params**
+* **Header Params**
+* **Body Params**
 
 ---
 
 ### Aula 9 – Status Codes HTTP
 
-- **1xx** – Informacional
-- **2xx** – Sucesso
-  - 200 OK
-  - 201 Created
-  - 204 No Content
-- **3xx** – Redirecionamento
-  - 301 Moved Permanently
-- **4xx** – Erro do cliente
-  - 400 Bad Request
-  - 401 Unauthorized
-  - 403 Forbidden
-  - 404 Not Found
-- **5xx** – Erro do servidor
-  - 500 Internal Server Error
+* **2xx** – Sucesso (200, 201, 204)
+* **4xx** – Erro do cliente (400, 401, 403, 404)
+* **5xx** – Erro do servidor (500)
 
 ---
 
 ### Aula 10 – Verbos HTTP (CRUD)
-- **POST (Create)**: cria recursos (200 ou 201)
-- **GET (Read)**: consulta recursos (200, 400 ou 404)
-- **PUT (Update)**: atualiza recursos (200 ou 204)
-- **DELETE (Delete)**: remove recursos (204 recomendado)
+
+* POST (Create)
+* GET (Read)
+* PUT (Update)
+* DELETE (Delete)
 
 ---
 
 ### Aula 11 – Verbos HTTP menos conhecidos
-- **PATCH**: atualizações parciais
-- **HEAD**: semelhante ao GET, sem corpo da resposta
-- **TRACE**: depuração de requisições
-- **OPTIONS**: verifica operações suportadas
-- **CONNECT**: estabelece túneis HTTP
+
+PATCH, HEAD, TRACE, OPTIONS, CONNECT
 
 ---
 
 ### Aula 13 – HATEOAS
-Princípio onde a API retorna, além dos dados, **links** que orientam o cliente sobre próximas ações possíveis.
+
+Princípio onde a API retorna **links** que guiam o cliente sobre próximas ações possíveis.
 
 ---
 
 ### Aula 14 – Swagger e OpenAPI
-Ferramentas utilizadas para **documentação automática de APIs**, facilitando desenvolvimento, testes e integração.
+
+Ferramentas para **documentação automática de APIs**, facilitando testes e integração.
 
 ---
 
 ### Aula 16 – Versionamento de APIs REST
-- Via Path: `/v1/recurso` (**mais recomendada**)
-- Via Query Param: `?version=1` (mais comum em desenvolvimento)
-- Via Header: `Accept` ou `api-version` (menos indicada)
+
+* Via Path (recomendado)
+* Via Query Param
+* Via Header
 
 ---
 
 ### Aula 18 – Boas Práticas em APIs REST
-Paginação, filtros, definição clara de recursos, tolerância a falhas, cache, timeouts, documentação, uso de SSL, versionamento, testes, monitoramento e limitação de requisições.
+
+Paginação, filtros, cache, versionamento, documentação, segurança, testes e monitoramento.
 
 ---
 
 ## Sessão 4 – Primeiros Passos com Spring Boot
 
 ### Aula 25 – O que é Spring Boot
-O Spring Framework simplificou o desenvolvimento Java, porém exigia muitas configurações. O **Spring Boot** surgiu para tornar esse processo ainda mais rápido e produtivo.
 
-#### Características
-- Aplicações autossuficientes
-- Servidor embutido
-- Configuração automática
-- Gerenciamento de dependências
-- Integração com Maven e Gradle
+Framework que simplifica o desenvolvimento Java com:
 
-#### Conceitos importantes
-- **Starters**: pacotes prontos de dependências
-- **Actuator**: monitoramento e gerenciamento da aplicação
+* Configuração automática
+* Servidor embutido
+* Gerenciamento de dependências
+* Integração com Maven e Gradle
 
 ---
 
 ### Aula 29 – Maven e pom.xml
 
-#### Maven
-Ferramenta de gerenciamento de dependências e build mais popular da plataforma Java. Automatiza o download e a organização de bibliotecas e plugins.
-
-Também permite a criação de **Maven Archetypes**, que são estruturas base de projetos.
-
-#### pom.xml
-Arquivo de configuração que descreve:
-- Dependências
-- Plugins
-- Repositórios
-- Metadados do projeto
+Ferramenta de build e gerenciamento de dependências da plataforma Java.
 
 ---
 
 ### Aula 30 – Primeiro Endpoint da API
 
-Conceitos fundamentais:
-- **Model**: representa dados e regras de negócio
-- **Controller**: recebe requisições HTTP e retorna respostas
+* **Model**: representa os dados
+* **Controller**: recebe requisições e retorna respostas HTTP
 
 ---
 
+## Sessão 5 – Entendendo Annotations e Tratamento de Exceções
+
 ### Aula 34 – Entendendo Annotations
 
-Annotations são usadas para **configurar e definir comportamentos** no Spring sem a necessidade de muitas configurações manuais.
-
 * **@SpringBootApplication**
-  Annotation principal da aplicação. Inicializa o Spring Boot e carrega todo o contexto da aplicação (configurações, beans, componentes, etc.).
+  Inicializa a aplicação Spring Boot e carrega todo o contexto.
 
 * **@RestController**
-  Indica que a classe é um controller REST. Os métodos retornam diretamente dados no corpo da resposta HTTP (geralmente JSON).
+  Define um controller REST que retorna dados no corpo da resposta HTTP.
 
 * **@RequestMapping**
-  Associa uma URL a uma classe ou método, definindo o caminho base ou o endpoint que será acessado.
+  Mapeia URLs para classes ou métodos.
 
 * **@PathVariable**
-  Indica que um valor presente na URL deve ser capturado e usado como parâmetro no método.
+  Captura valores da URL e os utiliza como parâmetros no método.
 
 ---
 
 ### Aula 37 – Tratamento de Exceções
 
-O Spring oferece mecanismos para centralizar e padronizar o tratamento de erros da aplicação.
-
 * **@ControllerAdvice**
-  Permite centralizar o tratamento de exceções. É aplicado globalmente quando nenhum controller define um tratamento mais específico.
+  Centraliza o tratamento global de exceções da aplicação.
 
 * **@ExceptionHandler**
-  Define um método responsável por tratar uma exceção específica dentro de um controller ou em um `@ControllerAdvice`.
+  Define métodos responsáveis por tratar exceções específicas.
 
 * **@ResponseStatus**
-  Define qual status HTTP deve ser retornado quando um método é executado ou quando uma exceção ocorre.
+  Define o status HTTP retornado em caso de erro ou execução de métodos.
 
 ---
 
+## Sessão 6 – Uso dos Verbos HTTP e Testes com Postman
+
 ### Aula 46 – Injeção de Dependências
 
-A Injeção de Dependências permite que o Spring gerencie a criação e o ciclo de vida dos objetos da aplicação.
-
 * **@Service**
-  Indica uma classe de serviço, onde normalmente fica a lógica de negócio. Permite que o Spring a gerencie e injete em outros componentes.
+  Classe onde fica a lógica de negócio da aplicação.
 
 * **@Autowired**
-  Instrui o Spring a injetar automaticamente uma dependência em uma classe, evitando a criação manual de objetos.
+  Permite que o Spring injete automaticamente dependências gerenciadas.
 
+---
 
+## Sessão 7 – Spring Data JPA e Integração da API com MySQL
+
+### Aula 50 – Spring Data JPA
+
+Framework que simplifica o acesso a dados em aplicações Java.
+
+Principais conceitos:
+
+* Repositórios JPA
+* Query Methods (consultas baseadas em nome)
+* **@Transactional** para gerenciamento de transações
+* Suporte a paginação e ordenação
+
+**Resumo**: reduz código repetitivo, promove boas práticas e facilita operações de banco de dados.
+
+---
+
+### Aula 52 – Implementando Entidade Person e Repositório
+
+* **@Entity**
+  Indica que a classe representa uma tabela do banco de dados.
+
+* **@Table**
+  Define detalhes da tabela.
+
+* **@Id**
+  Define a chave primária.
+
+* **@GeneratedValue**
+  Define a estratégia de geração do ID.
+
+* **@Column**
+  Configura propriedades da coluna.
+
+* **@Repository**
+  Indica a camada responsável pelo acesso a dados.
+
+---
+
+### Aula 53 – Refatorando Controller Person
+
+* **@RequestMapping**
+  Define o mapeamento base dos endpoints.
+
+* **@GetMapping, @PostMapping, @PutMapping, @DeleteMapping**
+  Especializações que tornam o código mais limpo, semântico e seguro.
