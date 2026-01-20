@@ -2,7 +2,6 @@ package br.com.mateusdornellascf.projeto_api_rest.controllers;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,24 +14,26 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
 
-
 import br.com.mateusdornellascf.projeto_api_rest.services.PersonServices;
-import br.com.mateusdornellascf.projeto_api_rest.models.Person;
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.PersonDTO;
+
+
 @RestController
 @RequestMapping("/person")
 public class PersonController {
 
-    @Autowired
+   @Autowired
     private PersonServices service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Person> findAll() {
+    public List<PersonDTO> findAll() {
         return service.findAll();
-         
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person findById(@PathVariable("id") Long id) {
+    @GetMapping(value = "/{id}",
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public PersonDTO findById(@PathVariable("id") Long id) {
         return service.findById(id);
     }
 
@@ -40,18 +41,16 @@ public class PersonController {
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Person create(@RequestBody Person person) {
+    public PersonDTO create(@RequestBody PersonDTO person) {
         return service.create(person);
-         
     }
 
-    @PutMapping( 
+    @PutMapping(
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public Person update(@RequestBody Person person) {
+    public PersonDTO update(@RequestBody PersonDTO person) {
         return service.update(person);
-         
     }
 
     @DeleteMapping(value = "/{id}")

@@ -1,36 +1,19 @@
 package br.com.mateusdornellascf.projeto_api_rest.data.dto;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class PersonDTO implements Serializable {
 
-@Entity
-@Table(name = "person")
-public class PersonDTO implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
 
-    
     private Long id;
-
     private String firstName;
-
     private String lastName;
-
     private String address;
-
     private String gender;
 
-    public PersonDTO() {
-    }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
+    public PersonDTO() {}
 
     public Long getId() {
         return id;
@@ -74,11 +57,8 @@ public class PersonDTO implements java.io.Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof PersonDTO person))
-            return false;
-        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName())
-                && Objects.equals(getLastName(), person.getLastName())
-                && Objects.equals(getAddress(), person.getAddress()) && Objects.equals(getGender(), person.getGender());
+        if (!(o instanceof PersonDTO person)) return false;
+        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName()) && Objects.equals(getAddress(), person.getAddress()) && Objects.equals(getGender(), person.getGender());
     }
 
     @Override
