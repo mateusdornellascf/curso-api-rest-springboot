@@ -265,3 +265,49 @@ No Spring Boot, o uso correto de logs ajuda a identificar falhas rapidamente e e
 
 ---
 
+## Sessão 9 – Padrão de Projeto DTO
+
+### Aula 63 – Padrão DTO
+
+**DTO (Data Transfer Object)** é um objeto simples utilizado exclusivamente para **transportar dados** entre camadas da aplicação ou entre sistemas.
+
+Características principais:
+
+* Não representa diretamente o banco de dados
+* Não contém regras de negócio
+* Estrutura simples, focada apenas nos dados necessários
+
+Benefícios do uso de DTOs:
+
+* Melhora a eficiência na troca de dados
+* Aumenta a segurança (evita exposição indevida de entidades)
+* Promove desacoplamento entre camadas
+* Melhora a clareza e a manutenibilidade da API
+
+---
+
+### Aula 64 – Dozer Mapper
+
+Ferramenta utilizada para **mapeamento automático de objetos** em aplicações Java, muito comum na conversão entre Entidades e DTOs.
+
+O Dozer permite três abordagens de mapeamento:
+
+* **Arquivos XML configuráveis**
+  Permitem definir os mapeamentos de forma externa às classes.
+
+* **Configuração programática**
+  Oferece maior flexibilidade para ajustes dinâmicos em tempo de execução.
+
+* **Annotations**
+  Define o mapeamento diretamente nas classes de modelo.
+
+#### Como funciona o mapeamento no Dozer
+
+1. Recebe dois objetos (origem e destino)
+2. Analisa as propriedades usando reflexão
+3. Compara nomes e tipos dos atributos
+4. Copia valores compatíveis automaticamente
+5. Aplica regras customizadas, quando configuradas
+
+---
+
