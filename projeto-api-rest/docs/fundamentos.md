@@ -311,3 +311,27 @@ O Dozer permite três abordagens de mapeamento:
 
 ---
 
+## Sessão 10 – Versionamento de API
+
+### O que é?
+
+Versionamento de API é a prática de **gerenciar mudanças ao longo do tempo**, permitindo que diferentes versões da mesma API coexistam sem quebrar integrações já existentes.
+
+Ele garante estabilidade para os consumidores da API, mesmo quando novas funcionalidades ou alterações estruturais são introduzidas.
+
+---
+
+### Como é utilizado?
+
+Boa prática é criar **novas versões da API** sempre que houver mudanças incompatíveis, por exemplo:
+
+* `/v1`
+* `/v2`
+
+Dessa forma:
+
+* Contratos antigos continuam funcionando
+* Novas regras podem ser implementadas sem impactar consumidores existentes
+* Classes, endpoints ou estruturas de dados podem evoluir de forma controlada
+
+O versionamento facilita a manutenção, a evolução da API e a compatibilidade entre diferentes clientes.
