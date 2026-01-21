@@ -1,4 +1,4 @@
-package br.com.mateusdornellascf.projeto_api_rest.data.dto;
+package br.com.mateusdornellascf.projeto_api_rest.data.dto.v1;
 
 import java.io.Serializable;
 import java.util.Objects;

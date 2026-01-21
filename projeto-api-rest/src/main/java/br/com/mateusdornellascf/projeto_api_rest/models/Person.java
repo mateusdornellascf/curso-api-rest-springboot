@@ -89,4 +89,9 @@ public class Person implements java.io.Serializable {
     public int hashCode() {
         return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender());
     }
+
+    public Object getBirthDay() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getBirthDay'");
+    }
 }

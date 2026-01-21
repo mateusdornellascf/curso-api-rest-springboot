@@ -9,11 +9,15 @@ import org.springframework.stereotype.Service;
 
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseObject;
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseListObjects;
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.PersonDTO;
+
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTO;
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTOV2;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundException;
+import br.com.mateusdornellascf.projeto_api_rest.mapper.custom.PersonMapper;
 import br.com.mateusdornellascf.projeto_api_rest.models.Person;
 import br.com.mateusdornellascf.projeto_api_rest.repository.PersonRepository;
 import java.util.List;
+
 @Service
 public class PersonServices {
 
@@ -23,6 +27,8 @@ public class PersonServices {
     @Autowired
     PersonRepository repository;
 
+    @Autowired
+    PersonMapper converter;
 
     public List<PersonDTO> findAll() {
         logger.info("Finding all People!");
@@ -32,10 +38,9 @@ public class PersonServices {
     public PersonDTO findById(Long id) {
         logger.info("Finding one Person!");
         var entity = repository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
         return parseObject(entity, PersonDTO.class);
     }
-
 
     public PersonDTO create(PersonDTO person) {
 
@@ -45,6 +50,13 @@ public class PersonServices {
         return parseObject(repository.save(entity), PersonDTO.class);
     }
 
+    public PersonDTOV2 createV2(PersonDTOV2 person) {
+
+        logger.info("Creating one Person V2!");
+        var entity = converter.convertDTOtoEntity(person);
+
+        return converter.convertEntityToDTO(repository.save(entity));
+    }
 
     public PersonDTO update(PersonDTO person) {
 

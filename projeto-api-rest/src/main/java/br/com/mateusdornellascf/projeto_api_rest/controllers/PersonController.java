@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
 
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTO;
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTOV2;
 import br.com.mateusdornellascf.projeto_api_rest.services.PersonServices;
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.PersonDTO;
 
 
 @RestController
@@ -45,6 +46,15 @@ public class PersonController {
         return service.create(person);
     }
 
+    @PostMapping(value="/v2",
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public PersonDTOV2 create(@RequestBody PersonDTOV2 person) {
+        return service.createV2(person);
+    }
+
+
     @PutMapping(
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE
@@ -58,4 +68,5 @@ public class PersonController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+    
 }
