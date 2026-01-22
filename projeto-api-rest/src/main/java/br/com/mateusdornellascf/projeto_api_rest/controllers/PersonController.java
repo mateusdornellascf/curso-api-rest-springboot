@@ -20,7 +20,7 @@ import br.com.mateusdornellascf.projeto_api_rest.services.PersonServices;
 
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("api/person/v1")
 public class PersonController {
 
    @Autowired
