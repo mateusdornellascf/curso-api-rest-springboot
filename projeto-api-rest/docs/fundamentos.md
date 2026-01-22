@@ -335,3 +335,35 @@ Dessa forma:
 * Classes, endpoints ou estruturas de dados podem evoluir de forma controlada
 
 O versionamento facilita a manutenção, a evolução da API e a compatibilidade entre diferentes clientes.
+
+---
+## Sessão 12 – Adicionando Suporte a Migrations com Flyway
+
+### O que são Migrations?
+
+Migrations são **scripts versionados de alteração do banco de dados** que descrevem, de forma incremental e controlada, a evolução do esquema do banco.
+
+Elas permitem manter o banco sincronizado com a aplicação ao longo do tempo.
+
+### Flyway
+
+Framework de **versionamento e migração de banco de dados**, executa migrations automaticamente, controla quais scripts já foram aplicados, garantindo **ordem, integridade e consistência**.
+
+### Estrutura de pastas padrão
+
+```
+resources/db/migration/
+  V1__primeira_migration.sql
+  V2__segunda_migration.sql
+```
+
+Cada script representa uma nova versão do banco de dados.
+
+### Configuração básica no application.yml
+
+```yaml
+flyway:
+  enabled: true
+``` 
+
+---
