@@ -1,10 +1,22 @@
 package br.com.mateusdornellascf.projeto_api_rest.data.dto.v2;
 
-import java.util.Date;
-
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
+/**
+ * @deprecated
+ *             DTO DA API v2 — DESCONTINUADO.
+ *
+ *             Motivo:
+ *             - Utilizado apenas para demonstrar versionamento de API.
+ *             
+ *
+ *             Status:
+ *             - NÃO deve ser utilizado em novos desenvolvimentos.
+ *             - Mantido apenas para documentação e compatibilidade histórica.
+ */
+@Deprecated
 public class PersonDTOV2 implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -16,7 +28,9 @@ public class PersonDTOV2 implements Serializable {
     private String address;
     private String gender;
 
-    public PersonDTOV2() {}
+    public PersonDTOV2() {
+        // construtor mantido apenas por compatibilidade
+    }
 
     public Long getId() {
         return id;
@@ -42,6 +56,14 @@ public class PersonDTOV2 implements Serializable {
         this.lastName = lastName;
     }
 
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -54,32 +76,27 @@ public class PersonDTOV2 implements Serializable {
         return gender;
     }
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
     public void setGender(String gender) {
         this.gender = gender;
-    }
-    public Date getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         PersonDTOV2 that = (PersonDTOV2) o;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && Objects.equals(getAddress(), that.getAddress()) && Objects.equals(getGender(), that.getGender()) && Objects.equals(getBirthDay(), that.getBirthDay());
+        return Objects.equals(id, that.id)
+                && Objects.equals(firstName, that.firstName)
+                && Objects.equals(lastName, that.lastName)
+                && Objects.equals(address, that.address)
+                && Objects.equals(gender, that.gender)
+                && Objects.equals(birthDay, that.birthDay);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender(), getBirthDay());
+        return Objects.hash(id, firstName, lastName, address, gender, birthDay);
     }
-
-
 }
