@@ -1,39 +1,43 @@
 package br.com.mateusdornellascf.projeto_api_rest.models;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "person")
-public class Person implements java.io.Serializable {
+public class Person implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(name = "first_name", nullable = false, length = 80)
     private String firstName;
-    
+
     @Column(name = "last_name", nullable = false, length = 80)
     private String lastName;
-    
+
     @Column(nullable = false, length = 100)
     private String address;
-    
+
     @Column(nullable = false, length = 6)
     private String gender;
 
-    public Person() {
-    }
+    /**
+     * Campo NÃO persistido.
+     * Usado apenas para composição da resposta da API.
+     */
+    @Transient
+    @Column(name = "birth_day", nullable = false)
+    private Date birthDay;
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    public Person() {
     }
 
     public Long getId() {
@@ -76,22 +80,25 @@ public class Person implements java.io.Serializable {
         this.gender = gender;
     }
 
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
+    }
+
     @Override
     public boolean equals(Object o) {
+        if (this == o)
+            return true;
         if (!(o instanceof Person person))
             return false;
-        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName())
-                && Objects.equals(getLastName(), person.getLastName())
-                && Objects.equals(getAddress(), person.getAddress()) && Objects.equals(getGender(), person.getGender());
+        return Objects.equals(id, person.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender());
-    }
-
-    public Object getBirthDay() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBirthDay'");
+        return Objects.hash(id);
     }
 }
