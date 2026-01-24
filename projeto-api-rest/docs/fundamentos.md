@@ -367,3 +367,34 @@ flyway:
 ``` 
 
 ---
+
+## Sessão 13 – Customização do JSON
+
+A customização do JSON permite **controlar como os dados são serializados e expostos** nas respostas da API.
+
+Essa configuração deve ser aplicada **nos DTOs**, e não nas entidades, para evitar acoplamento com a camada de persistência e exposição indevida de dados internos.
+
+
+### Principais Annotations do Jackson
+
+- **@JsonIgnore**  
+  Oculta um campo no JSON retornado.  
+  Usado para evitar a exposição de dados sensíveis, como senhas ou informações internas.
+
+- **@JsonProperty**  
+  Define explicitamente o nome do campo no JSON, independentemente do nome do atributo na classe.
+
+- **@JsonInclude**  
+  Controla quando um campo deve aparecer no JSON.  
+  Exemplo comum: incluir apenas campos não nulos.
+
+- **@JsonFormat**  
+  Define o formato de datas, horas ou números no JSON, garantindo padronização nas respostas da API.
+
+
+
+### Boas práticas
+
+- Aplicar annotations de JSON apenas em **DTOs**
+- Evitar customização de serialização diretamente nas entidades
+- Padronizar formatos de data e hora em toda a API
