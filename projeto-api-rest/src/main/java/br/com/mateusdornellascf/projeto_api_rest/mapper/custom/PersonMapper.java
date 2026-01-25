@@ -1,14 +1,14 @@
 package br.com.mateusdornellascf.projeto_api_rest.mapper.custom;
 
 import java.util.Date;
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTOV2;
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTO;
 import br.com.mateusdornellascf.projeto_api_rest.models.Person;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PersonMapper {
-    public PersonDTOV2 convertEntityToDTO(Person person) {
-        PersonDTOV2 dto = new PersonDTOV2();
+    public PersonDTO convertEntityToDTO(Person person) {
+        PersonDTO dto = new PersonDTO();
         dto.setId(person.getId());
         dto.setFirstName(person.getFirstName());
         dto.setLastName(person.getLastName());
@@ -18,7 +18,7 @@ public class PersonMapper {
         return dto;
     }
 
-    public Person convertDTOtoEntity(PersonDTOV2 person) {
+    public Person convertDTOtoEntity(PersonDTO person) {
         Person entity = new Person();
         entity.setId(person.getId());
         entity.setFirstName(person.getFirstName());

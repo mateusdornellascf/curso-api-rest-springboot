@@ -1,4 +1,4 @@
-package br.com.mateusdornellascf.projeto_api_rest.services;
+package br.com.mateusdornellascf.projeto_api_rest.services.v3;
 
 import java.util.concurrent.atomic.AtomicLong;
 import org.slf4j.Logger;
@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseObject;
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseListObjects;
 
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTO;
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTOV2;
+// import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTO;
+// import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTO;
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundException;
 import br.com.mateusdornellascf.projeto_api_rest.mapper.custom.PersonMapper;
 import br.com.mateusdornellascf.projeto_api_rest.models.Person;
@@ -50,13 +51,13 @@ public class PersonServices {
         return parseObject(repository.save(entity), PersonDTO.class);
     }
 
-    public PersonDTOV2 createV2(PersonDTOV2 person) {
+    // public PersonDTO createV2(PersonDTO person) {
 
-        logger.info("Creating one Person V2!");
-        var entity = converter.convertDTOtoEntity(person);
+    // logger.info("Creating one Person V2!");
+    // var entity = converter.convertDTOtoEntity(person);
 
-        return converter.convertEntityToDTO(repository.save(entity));
-    }
+    // return converter.convertEntityToDTO(repository.save(entity));
+    // }
 
     public PersonDTO update(PersonDTO person) {
 

@@ -17,7 +17,7 @@ import java.util.Objects;
  *             - Mantido apenas para documentação e compatibilidade histórica.
  */
 @Deprecated
-public class PersonDTOV2 implements Serializable {
+public class PersonDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -28,7 +28,7 @@ public class PersonDTOV2 implements Serializable {
     private String address;
     private String gender;
 
-    public PersonDTOV2() {
+    public PersonDTO() {
         // construtor mantido apenas por compatibilidade
     }
 
@@ -86,7 +86,7 @@ public class PersonDTOV2 implements Serializable {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        PersonDTOV2 that = (PersonDTOV2) o;
+        PersonDTO that = (PersonDTO) o;
         return Objects.equals(id, that.id)
                 && Objects.equals(firstName, that.firstName)
                 && Objects.equals(lastName, that.lastName)

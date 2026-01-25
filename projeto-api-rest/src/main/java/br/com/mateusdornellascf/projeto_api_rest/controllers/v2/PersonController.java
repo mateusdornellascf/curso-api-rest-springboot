@@ -1,10 +1,10 @@
-package br.com.mateusdornellascf.projeto_api_rest.controllers;
+package br.com.mateusdornellascf.projeto_api_rest.controllers.v2;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTOV2;
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTO;
 
 /**
  * @deprecated
@@ -20,9 +20,9 @@ import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTOV2;
  */
 
 @Deprecated
-@RestController
+@RestController("personControllerV2")
 @RequestMapping("/api/person/v2")
-public class PersonControllerV2 {
+public class PersonController {
 
     private static final String DEPRECATION_MESSAGE = "API v2 descontinuada. Utilize a versão mais recente da API.";
 
@@ -35,7 +35,7 @@ public class PersonControllerV2 {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody PersonDTOV2 person) {
+    public ResponseEntity<?> create(@RequestBody PersonDTO person) {
         return ResponseEntity
                 .status(HttpStatus.GONE)
                 .header("Warning", "299 - API v2 is deprecated")
@@ -43,7 +43,7 @@ public class PersonControllerV2 {
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestBody PersonDTOV2 person) {
+    public ResponseEntity<?> update(@RequestBody PersonDTO person) {
         return ResponseEntity
                 .status(HttpStatus.GONE)
                 .header("Warning", "299 - API v2 is deprecated")
