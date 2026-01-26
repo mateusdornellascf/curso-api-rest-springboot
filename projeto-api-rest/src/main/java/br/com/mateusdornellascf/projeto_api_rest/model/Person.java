@@ -1,4 +1,4 @@
-package br.com.mateusdornellascf.projeto_api_rest.models;
+package br.com.mateusdornellascf.projeto_api_rest.model;
 
 import java.io.Serializable;
 import java.util.Date;

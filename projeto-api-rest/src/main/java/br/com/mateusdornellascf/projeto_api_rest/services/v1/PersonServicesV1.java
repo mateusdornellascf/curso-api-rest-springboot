@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTO;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundException;
 import br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper;
-import br.com.mateusdornellascf.projeto_api_rest.models.Person;
+import br.com.mateusdornellascf.projeto_api_rest.model.Person;
 import br.com.mateusdornellascf.projeto_api_rest.repository.PersonRepository;
 
 /**

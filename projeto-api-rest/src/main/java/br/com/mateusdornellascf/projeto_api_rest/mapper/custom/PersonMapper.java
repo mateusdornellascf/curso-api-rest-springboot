@@ -1,8 +1,9 @@
 package br.com.mateusdornellascf.projeto_api_rest.mapper.custom;
 
-import java.util.Date;
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTO;
-import br.com.mateusdornellascf.projeto_api_rest.models.Person;
+// import java.util.Date;
+import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
+import br.com.mateusdornellascf.projeto_api_rest.model.Person;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,7 +13,7 @@ public class PersonMapper {
         dto.setId(person.getId());
         dto.setFirstName(person.getFirstName());
         dto.setLastName(person.getLastName());
-        dto.setBirthDay(new Date());
+        // dto.setBirthDay(new Date());
         dto.setAddress(person.getAddress());
         dto.setGender(person.getGender());
         return dto;

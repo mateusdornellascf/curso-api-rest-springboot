@@ -1,6 +1,5 @@
 package br.com.mateusdornellascf.projeto_api_rest.services.v3;
 
-import java.util.concurrent.atomic.AtomicLong;
 import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
@@ -12,20 +11,18 @@ import org.springframework.stereotype.Service;
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseObject;
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseListObjects;
 
-// import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTO;
-// import br.com.mateusdornellascf.projeto_api_rest.data.dto.v2.PersonDTO;
 import br.com.mateusdornellascf.projeto_api_rest.controllers.v3.PersonController;
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
+import br.com.mateusdornellascf.projeto_api_rest.exceptions.RequiredObjectIsNullException;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundException;
 import br.com.mateusdornellascf.projeto_api_rest.mapper.custom.PersonMapper;
-import br.com.mateusdornellascf.projeto_api_rest.models.Person;
+import br.com.mateusdornellascf.projeto_api_rest.model.Person;
 import br.com.mateusdornellascf.projeto_api_rest.repository.PersonRepository;
 import java.util.List;
 
 @Service
 public class PersonServices {
 
-    private final AtomicLong counter = new AtomicLong();
     private Logger logger = LoggerFactory.getLogger(PersonServices.class.getName());
 
     @Autowired
@@ -55,29 +52,41 @@ public class PersonServices {
 
 
     public PersonDTO create(PersonDTO person) {
-        logger.info("Creating one Person!");
-        var entity = parseObject(person, Person.class);
 
-        var dto = parseObject(repository.save(entity), PersonDTO.class);
-        addHateoasLinks(dto);
-        return dto;
+    if (person == null) {
+        throw new RequiredObjectIsNullException("It is not allowed to persist a null object!");
     }
+
+    logger.info("Creating one Person!");
+
+    var entity = parseObject(person, Person.class);
+    var dto = parseObject(repository.save(entity), PersonDTO.class);
+    addHateoasLinks(dto);
+    return dto;
+}
+
 
     public PersonDTO update(PersonDTO person) {
 
-        logger.info("Updating one Person!");
-        Person entity = repository.findById(person.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
-
-        entity.setFirstName(person.getFirstName());
-        entity.setLastName(person.getLastName());
-        entity.setAddress(person.getAddress());
-        entity.setGender(person.getGender());
-
-        var dto = parseObject(repository.save(entity), PersonDTO.class);
-        addHateoasLinks(dto);
-        return dto;
+    if (person == null) {
+        throw new RequiredObjectIsNullException("It is not allowed to persist a null object!");
     }
+
+    logger.info("Updating one Person!");
+
+    Person entity = repository.findById(person.getId())
+            .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+
+    entity.setFirstName(person.getFirstName());
+    entity.setLastName(person.getLastName());
+    entity.setAddress(person.getAddress());
+    entity.setGender(person.getGender());
+
+    var dto = parseObject(repository.save(entity), PersonDTO.class);
+    addHateoasLinks(dto);
+    return dto;
+}
+
 
     public void delete(Long id) {
 
@@ -96,5 +105,7 @@ public class PersonServices {
         dto.add(linkTo(methodOn(PersonController.class).update(dto)).withRel("update").withType("PUT"));
         dto.add(linkTo(methodOn(PersonController.class).delete(dto.getId())).withRel("delete").withType("DELETE"));
     }
+
+
 
 }
