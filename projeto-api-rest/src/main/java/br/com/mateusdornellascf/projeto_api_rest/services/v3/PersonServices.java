@@ -51,14 +51,6 @@ public class PersonServices {
         return parseObject(repository.save(entity), PersonDTO.class);
     }
 
-    // public PersonDTO createV2(PersonDTO person) {
-
-    // logger.info("Creating one Person V2!");
-    // var entity = converter.convertDTOtoEntity(person);
-
-    // return converter.convertEntityToDTO(repository.save(entity));
-    // }
-
     public PersonDTO update(PersonDTO person) {
 
         logger.info("Updating one Person!");
