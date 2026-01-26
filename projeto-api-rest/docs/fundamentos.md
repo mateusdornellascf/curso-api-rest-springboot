@@ -398,3 +398,21 @@ Essa configuração deve ser aplicada **nos DTOs**, e não nas entidades, para e
 - Aplicar annotations de JSON apenas em **DTOs**
 - Evitar customização de serialização diretamente nas entidades
 - Padronizar formatos de data e hora em toda a API
+
+---
+
+## Sessão 13 – Content Negotiation
+
+Content Negotiation é a capacidade do **cliente e do servidor negociarem o formato da representação dos dados** em uma requisição HTTP.
+
+O recurso acessado é o mesmo; o que muda é o **formato dos dados retornados**, de acordo com o que o cliente solicita e o servidor suporta.
+
+Os formatos mais utilizados em APIs REST são:
+- **JSON**
+- **XML**
+- **YAML**
+
+No Spring Boot, essa negociação geralmente é feita com base nos **headers HTTP**, especialmente o header `Accept`.
+
+Boa prática:  
+O uso de headers é a abordagem mais recomendada, pois segue corretamente o padrão HTTP e os princípios REST, tornando a API mais **flexível, padronizada e profissional**.
