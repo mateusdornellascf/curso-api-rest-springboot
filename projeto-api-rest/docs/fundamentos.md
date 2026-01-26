@@ -416,3 +416,18 @@ No Spring Boot, essa negociação geralmente é feita com base nos **headers HTT
 
 Boa prática:  
 O uso de headers é a abordagem mais recomendada, pois segue corretamente o padrão HTTP e os princípios REST, tornando a API mais **flexível, padronizada e profissional**.
+
+---
+
+## Sessão 14 — HATEOAS
+
+É um princípio do REST que define que as respostas da API devem conter **links** que indiquem as **próximas ações possíveis** para o cliente.
+
+**Conceito-chave:**  
+O servidor guia o cliente por meio de links (hipermídia), reduzindo o acoplamento e permitindo que o cliente descubra como navegar pela API.
+
+
+## Mockito
+
+Framework de **testes unitários** utilizado para **simular (mockar) instâncias de classes e o comportamento de métodos**, permitindo testar componentes de forma **isolada**, sem depender de banco de dados, APIs externas ou outras camadas da aplicação.
+
