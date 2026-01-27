@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController("bookControllerV3")
 @RequestMapping("/api/book/v3")
-@Tag(name = "Books", description = "Endpoints for Managing Books")
+@Tag(name = "Book", description = "Endpoints for Managing Books")
 public class BookController implements BookControllerDocs {
 
     @Autowired
