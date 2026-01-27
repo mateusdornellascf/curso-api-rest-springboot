@@ -1,72 +1,72 @@
-package br.com.mateusdornellascf.projeto_api_rest.services.v1;
+// package br.com.mateusdornellascf.projeto_api_rest.services.v1;
 
-import java.util.List;
+// import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Service;
 
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTO;
-import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundException;
-import br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper;
-import br.com.mateusdornellascf.projeto_api_rest.model.Person;
-import br.com.mateusdornellascf.projeto_api_rest.repository.PersonRepository;
+// import br.com.mateusdornellascf.projeto_api_rest.data.dto.v1.PersonDTOV3;
+// import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundException;
+// import br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper;
+// import br.com.mateusdornellascf.projeto_api_rest.model.Person;
+// import br.com.mateusdornellascf.projeto_api_rest.repository.PersonRepository;
 
-/**
- * SERVICE LEGADO (V1)
- *
- * Mantido apenas para compatibilidade com a API V1.
- * Não deve receber novas evoluções.
- */
-@Service
-public class PersonServicesV1 {
+// /**
+//  * SERVICE LEGADO (V1)
+//  *
+//  * Mantido apenas para compatibilidade com a API V1.
+//  * Não deve receber novas evoluções.
+//  */
+// @Service
+// public class PersonServicesV1 {
 
-    private Logger logger = LoggerFactory.getLogger(PersonServicesV1.class);
+//     private Logger logger = LoggerFactory.getLogger(PersonServicesV1.class);
 
-    @Autowired
-    private PersonRepository repository;
+//     @Autowired
+//     private PersonRepository repository;
 
-    public List<PersonDTO> findAll() {
-        logger.info("Finding all People (V1)");
-        return ObjectMapper.parseListObjects(repository.findAll(), PersonDTO.class);
-    }
+//     public List<PersonDTOV3> findAll() {
+//         logger.info("Finding all People (V1)");
+//         return ObjectMapper.parseListObjects(repository.findAll(), PersonDTOV3.class);
+//     }
 
-    public PersonDTO findById(Long id) {
-        logger.info("Finding one Person (V1)");
-        Person entity = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+//     public PersonDTOV3 findById(Long id) {
+//         logger.info("Finding one Person (V1)");
+//         Person entity = repository.findById(id)
+//                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 
-        return ObjectMapper.parseObject(entity, PersonDTO.class);
-    }
+//         return ObjectMapper.parseObject(entity, PersonDTOV3.class);
+//     }
 
-    public PersonDTO create(PersonDTO person) {
-        logger.info("Creating one Person (V1)");
+//     public PersonDTOV3 create(PersonDTOV3 person) {
+//         logger.info("Creating one Person (V1)");
 
-        Person entity = ObjectMapper.parseObject(person, Person.class);
-        return ObjectMapper.parseObject(repository.save(entity), PersonDTO.class);
-    }
+//         Person entity = ObjectMapper.parseObject(person, Person.class);
+//         return ObjectMapper.parseObject(repository.save(entity), PersonDTOV3.class);
+//     }
 
-    public PersonDTO update(PersonDTO person) {
-        logger.info("Updating one Person (V1)");
+//     public PersonDTOV3 update(PersonDTOV3 person) {
+//         logger.info("Updating one Person (V1)");
 
-        Person entity = repository.findById(person.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+//         Person entity = repository.findById(person.getId())
+//                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 
-        entity.setFirstName(person.getFirstName());
-        entity.setLastName(person.getLastName());
-        entity.setAddress(person.getAddress());
-        entity.setGender(person.getGender());
+//         entity.setFirstName(person.getFirstName());
+//         entity.setLastName(person.getLastName());
+//         entity.setAddress(person.getAddress());
+//         entity.setGender(person.getGender());
 
-        return ObjectMapper.parseObject(repository.save(entity), PersonDTO.class);
-    }
+//         return ObjectMapper.parseObject(repository.save(entity), PersonDTOV3.class);
+//     }
 
-    public void delete(Long id) {
-        logger.info("Deleting one Person (V1)");
+//     public void delete(Long id) {
+//         logger.info("Deleting one Person (V1)");
 
-        Person entity = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+//         Person entity = repository.findById(id)
+//                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 
-        repository.delete(entity);
-    }
-}
+//         repository.delete(entity);
+//     }
+// }
