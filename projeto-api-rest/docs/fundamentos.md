@@ -431,3 +431,59 @@ O servidor guia o cliente por meio de links (hipermídia), reduzindo o acoplamen
 
 Framework de **testes unitários** utilizado para **simular (mockar) instâncias de classes e o comportamento de métodos**, permitindo testar componentes de forma **isolada**, sem depender de banco de dados, APIs externas ou outras camadas da aplicação.
 
+---
+## Sessão 15 – Swagger
+
+Swagger é um framework baseado na especificação **OpenAPI** que facilita a **definição, documentação e consumo de APIs REST**, mantendo a documentação sempre sincronizada com o código da aplicação.
+
+Permite:
+- Documentar endpoints, parâmetros, respostas e modelos (DTOs)
+- Testar a API por meio de uma interface visual interativa
+- Gerar código e templates automaticamente
+- Padronizar contratos de API entre times e sistemas
+
+### Principais ferramentas do Swagger
+
+- **Swagger UI**  
+  Interface visual interativa para explorar e testar os endpoints da API.
+
+- **Swagger Editor**  
+  Ferramenta para criação e validação da especificação OpenAPI.
+
+- **Swagger Codegen**  
+  Gera código automaticamente a partir da definição da API.
+
+### Swagger no Spring Boot
+
+No Spring Boot, o Swagger é utilizado por meio de bibliotecas baseadas em OpenAPI, sendo a mais moderna e recomendada:
+
+- **springdoc-openapi**
+
+Essa biblioteca faz a leitura automática das annotations do Spring e gera a documentação da API de forma dinâmica.
+
+### Principais annotations do Swagger / OpenAPI:
+
+- **@Operation**  
+  Define a descrição e o propósito de um endpoint.
+
+- **@ApiResponses / @ApiResponse**  
+  Documenta os possíveis códigos de resposta HTTP.
+
+- **@Parameter**  
+  Documenta parâmetros de entrada da API.
+
+- **@Schema**  
+  Documenta DTOs e seus campos.
+
+### Boas práticas:
+
+- Documentar todos os endpoints importantes
+- Usar descrições claras e objetivas
+- Documentar DTOs, não entidades
+- Padronizar nomes, exemplos e códigos HTTP
+- Documentar erros e exceções
+- Integrar com mecanismos de segurança (JWT, OAuth2)
+- Não expor dados sensíveis
+- Manter a documentação sempre sincronizada com o código
+
+---
