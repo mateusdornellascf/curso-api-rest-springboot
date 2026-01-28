@@ -487,3 +487,43 @@ Essa biblioteca faz a leitura automática das annotations do Spring e gera a doc
 - Manter a documentação sempre sincronizada com o código
 
 ---
+
+## Sessão 16 – Containerização com Docker
+
+Docker permite **empacotar, distribuir e executar aplicações em containers**, garantindo isolamento, padronização de ambiente e facilidade de deploy.
+
+### Container
+
+Um container é uma **instância em execução de uma imagem Docker**.
+
+Ele contém a aplicação, suas dependências e configurações, rodando de forma isolada do sistema operacional host, mas compartilhando o mesmo kernel.
+
+### Imagem
+
+Uma imagem Docker é um **modelo imutável** que contém tudo o que é necessário para criar um container.
+
+Ela inclui:
+- Código da aplicação
+- Dependências
+- Variáveis de ambiente
+- Configurações básicas
+
+### Dockerfile
+
+O **Dockerfile** é um arquivo de instruções que define **como a imagem será construída**.
+
+Nele são especificados:
+- Imagem base
+- Dependências
+- Comandos de build
+- Configurações de execução
+
+### Docker Compose
+
+Docker Compose é uma ferramenta que permite **definir e executar múltiplos containers** de forma orquestrada usando um arquivo YAML.
+
+É muito utilizado para:
+- Ambientes de desenvolvimento
+- Aplicações com múltiplos serviços (API, banco de dados, cache)
+- Padronização de ambientes locais
+---
