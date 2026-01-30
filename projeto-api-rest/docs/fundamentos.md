@@ -527,3 +527,30 @@ Docker Compose é uma ferramenta que permite **definir e executar múltiplos con
 - Aplicações com múltiplos serviços (API, banco de dados, cache)
 - Padronização de ambientes locais
 ---
+## Sessão 17 – Testes de Integração com Testcontainers e REST Assured
+
+Testes de integração validam o funcionamento da aplicação **em conjunto com suas dependências reais**, como banco de dados, mensageria ou serviços externos.
+
+### Testcontainers
+
+Testcontainers é uma biblioteca **open-source para Java** que facilita a criação de testes de integração, permitindo subir dependências da aplicação em **containers Docker isolados e temporários**, durante a execução dos testes.
+
+Principais benefícios:
+- Ambiente de teste próximo ao cenário real
+- Isolamento entre testes
+- Containers criados e finalizados automaticamente
+- Maior confiabilidade dos testes de integração
+
+É muito utilizado para testar integrações com bancos de dados, filas, caches e outros serviços.
+
+### REST Assured
+
+REST Assured é uma biblioteca Java **open-source**, amplamente utilizada para **automatizar e simplificar testes de APIs RESTful**.
+
+Ela permite:
+- Construir requisições HTTP de forma fluente e legível
+- Validar status codes, headers e corpo da resposta
+- Testar endpoints REST de forma clara e expressiva
+- Integrar facilmente com frameworks de teste como JUnit
+
+É ideal para validar o comportamento dos endpoints da API em testes de integração.
