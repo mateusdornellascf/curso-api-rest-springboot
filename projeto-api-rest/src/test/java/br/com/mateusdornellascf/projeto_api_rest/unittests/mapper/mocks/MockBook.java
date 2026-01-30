@@ -1,4 +1,4 @@
-package br.com.mateusdornellascf.projeto_api_rest.unitetests.mapper.mocks;
+package br.com.mateusdornellascf.projeto_api_rest.unittests.mapper.mocks;
 
 import java.util.ArrayList;
 import java.util.Date;

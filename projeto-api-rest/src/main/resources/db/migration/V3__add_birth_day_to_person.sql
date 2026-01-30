@@ -1,2 +1,0 @@
-ALTER TABLE person
-ADD COLUMN birth_day DATE NOT NULL;

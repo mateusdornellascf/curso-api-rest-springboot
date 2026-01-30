@@ -1,1 +1,22 @@
+server:
+ port: 8888
+spring:
+  application:
+    name: projeto_api_rest
 
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: false
+
+logging:
+  level:
+    br.com.mateusdornellascf: DEBUG
+springdoc:
+  paths-to-match: /api/**/v3/**
+  swagger-ui:
+    use-root-path: true  

@@ -1,6 +1,4 @@
-package br.com.mateusdornellascf.projeto_api_rest.unitetests.mapper;
-
-
+package br.com.mateusdornellascf.projeto_api_rest.unittests.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,11 +6,12 @@ import java.util.List;
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseListObjects;
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseObject;
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
-import br.com.mateusdornellascf.projeto_api_rest.unitetests.mapper.mocks.MockPerson;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import br.com.mateusdornellascf.projeto_api_rest.model.Person;
+import br.com.mateusdornellascf.projeto_api_rest.unittests.mapper.mocks.MockPerson;
 
 public class ObjectMapperTests {
     MockPerson inputObject;

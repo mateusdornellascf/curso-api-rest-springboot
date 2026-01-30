@@ -1,9 +1,10 @@
-package br.com.mateusdornellascf.projeto_api_rest.services.v3;
+package br.com.mateusdornellascf.projeto_api_rest.unittests.services.v3;
 
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
 import br.com.mateusdornellascf.projeto_api_rest.model.Person;
 import br.com.mateusdornellascf.projeto_api_rest.repository.PersonRepository;
-import br.com.mateusdornellascf.projeto_api_rest.unitetests.mapper.mocks.MockPerson;
+import br.com.mateusdornellascf.projeto_api_rest.services.v3.PersonServices;
+import br.com.mateusdornellascf.projeto_api_rest.unittests.mapper.mocks.MockPerson;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.RequiredObjectIsNullException;
 
 import org.junit.jupiter.api.BeforeEach;

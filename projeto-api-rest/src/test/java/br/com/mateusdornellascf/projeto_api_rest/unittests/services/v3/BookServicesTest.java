@@ -1,10 +1,12 @@
-package br.com.mateusdornellascf.projeto_api_rest.services.v3;
+package br.com.mateusdornellascf.projeto_api_rest.unittests.services.v3;
 
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.BookDTO;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.RequiredObjectIsNullException;
 import br.com.mateusdornellascf.projeto_api_rest.model.Book;
 import br.com.mateusdornellascf.projeto_api_rest.repository.BookRepository;
-import br.com.mateusdornellascf.projeto_api_rest.unitetests.mapper.mocks.MockBook;
+import br.com.mateusdornellascf.projeto_api_rest.services.v3.BookServices;
+import br.com.mateusdornellascf.projeto_api_rest.unittests.mapper.mocks.MockBook;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
