@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +28,6 @@ public class PersonController implements PersonControllerDocs {
     @Autowired
     private PersonServices service;
     // private PersonServices service = new PersonServices();
-
     @Override
     @GetMapping(
         produces = {
@@ -39,6 +39,7 @@ public class PersonController implements PersonControllerDocs {
         return service.findAll();
     }
 
+    
     @Override
     @GetMapping(value = "/{id}", produces ={
         MediaType.APPLICATION_JSON_VALUE,
@@ -61,7 +62,6 @@ public class PersonController implements PersonControllerDocs {
             MediaType.APPLICATION_XML_VALUE,
             MediaType.APPLICATION_YAML_VALUE}
         )
-    
     public PersonDTO create(@RequestBody PersonDTO person) {
         return service.create(person);
     }
