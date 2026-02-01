@@ -554,3 +554,37 @@ Ela permite:
 - Integrar facilmente com frameworks de teste como JUnit
 
 É ideal para validar o comportamento dos endpoints da API em testes de integração.
+
+---
+
+## Sessão 18 – Cross-Origin Resource Sharing (CORS)
+
+CORS é um **mecanismo de segurança implementado pelos navegadores** que controla o compartilhamento de recursos entre **origens diferentes**.
+
+Ele define se uma aplicação frontend pode ou não acessar recursos de uma API localizada em outro domínio, porta ou protocolo, com base em regras configuradas no servidor.
+
+### CORS no Spring Boot
+Pode ser configurado de duas formas principais:
+
+- **Configuração global**  
+  Define regras de CORS válidas para toda a aplicação.
+
+- **Configuração nos controllers**  
+  Permite definir regras específicas por endpoint ou recurso, oferecendo maior controle.
+
+### Principais configurações de CORS
+
+- **Origens permitidas** (`allowedOrigins`)
+- **Métodos HTTP permitidos** (`GET`, `POST`, `PUT`, `DELETE`, etc.)
+- **Headers permitidos**
+- **Headers expostos na resposta**
+- **Credenciais** (cookies, tokens, headers de autenticação)
+
+### Boas práticas
+
+- Definir as origens permitidas
+- Preferir configuração global quando as regras forem iguais para toda a API
+- Entender a relação entre CORS e a **Same-Origin Policy**
+- Testar o comportamento com requisições preflight (`OPTIONS`)
+
+
