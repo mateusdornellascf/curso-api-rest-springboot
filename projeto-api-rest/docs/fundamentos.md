@@ -587,4 +587,20 @@ Pode ser configurado de duas formas principais:
 - Entender a relação entre CORS e a **Same-Origin Policy**
 - Testar o comportamento com requisições preflight (`OPTIONS`)
 
+---
+## Sessão 19 – Verbo HTTP PATCH
+
+O verbo HTTP **PATCH** é utilizado para **atualizar parcialmente um recurso**, enviando apenas os campos que devem ser modificados, sem a necessidade de enviar o estado completo do objeto.
+
+Indicado quando:
+- Apenas parte dos dados precisa ser alterada
+- O envio do recurso completo é desnecessário ou custoso
+- Atualizações pontuais são frequentes
+
+Diferente do **PUT**, que geralmente substitui o recurso inteiro, o **PATCH** aplica mudanças específicas ao estado atual do recurso.
+
+O uso correto do PATCH contribui para:
+- Melhor eficiência de rede
+- Menor acoplamento entre cliente e servidor
+- APIs mais flexíveis e semânticas
 
