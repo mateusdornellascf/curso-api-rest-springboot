@@ -29,6 +29,9 @@ public class Person implements Serializable {
     @Column(nullable = false, length = 6)
     private String gender;
 
+    @Column(nullable = false)
+    private Boolean enabled;
+
     /**
      * Campo NÃO persistido.
      * Usado apenas para composição da resposta da API.
@@ -88,17 +91,28 @@ public class Person implements Serializable {
         this.birthDay = birthDay;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (!(o instanceof Person person))
+        if (o == null || getClass() != o.getClass())
             return false;
-        return Objects.equals(id, person.id);
+        Person person = (Person) o;
+        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName())
+                && Objects.equals(getLastName(), person.getLastName())
+                && Objects.equals(getAddress(), person.getAddress()) && Objects.equals(getGender(), person.getGender())
+                && Objects.equals(getEnabled(), person.getEnabled());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender(), getEnabled());
     }
+
 }

@@ -18,6 +18,8 @@ import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundExce
 import br.com.mateusdornellascf.projeto_api_rest.mapper.custom.PersonMapper;
 import br.com.mateusdornellascf.projeto_api_rest.model.Person;
 import br.com.mateusdornellascf.projeto_api_rest.repository.PersonRepository;
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 @Service
@@ -96,6 +98,21 @@ public class PersonServices {
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
         repository.delete(entity);
     }
+    @Transactional
+    public PersonDTO disablePerson(Long id) {
+
+        logger.info("Disabling one Person!");
+
+        repository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+        repository.disablePerson(id);
+
+        var entity = repository.findById(id).get();
+        var dto = parseObject(entity, PersonDTO.class);
+        addHateoasLinks(dto);
+        return dto;
+    }
+
 
 
     private void addHateoasLinks(PersonDTO dto) {
@@ -103,6 +120,7 @@ public class PersonServices {
         dto.add(linkTo(methodOn(PersonController.class).findAll()).withRel("findAll").withType("GET"));
         dto.add(linkTo(methodOn(PersonController.class).create(dto)).withRel("create").withType("POST"));
         dto.add(linkTo(methodOn(PersonController.class).update(dto)).withRel("update").withType("PUT"));
+        dto.add(linkTo(methodOn(PersonController.class).disablePerson(dto.getId())).withRel("disable").withType("PATCH"));
         dto.add(linkTo(methodOn(PersonController.class).delete(dto.getId())).withRel("delete").withType("DELETE"));
     }
 
