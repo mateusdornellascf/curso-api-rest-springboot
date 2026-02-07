@@ -4,8 +4,6 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseObject;
-import static br.com.mateusdornellascf.projeto_api_rest.mapper.ObjectMapper.parseListObjects;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,15 +13,14 @@ import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedModel;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import br.com.mateusdornellascf.projeto_api_rest.controllers.v3.BookController;
-import br.com.mateusdornellascf.projeto_api_rest.controllers.v3.PersonController;
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.BookDTO;
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
+
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.RequiredObjectIsNullException;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.ResourceNotFoundException;
 import br.com.mateusdornellascf.projeto_api_rest.model.Book;

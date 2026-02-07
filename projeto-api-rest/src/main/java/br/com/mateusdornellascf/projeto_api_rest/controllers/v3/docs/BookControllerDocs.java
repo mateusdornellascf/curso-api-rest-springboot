@@ -1,6 +1,6 @@
 package br.com.mateusdornellascf.projeto_api_rest.controllers.v3.docs;
 
-import java.util.List;
+
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.BookDTO;
-import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
