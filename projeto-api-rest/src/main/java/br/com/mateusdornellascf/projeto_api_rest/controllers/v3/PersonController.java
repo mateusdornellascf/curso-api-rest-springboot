@@ -1,9 +1,5 @@
 package br.com.mateusdornellascf.projeto_api_rest.controllers.v3;
 
-import java.util.List;
-
-import org.springdoc.core.converters.models.Sort;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;

@@ -51,7 +51,7 @@ public class PersonServices {
         });
 
         Link findAllLink = linkTo(methodOn(PersonController.class).findAll(pageable.getPageNumber(),
-                pageable.getPageSize(), pageable.getSort().toString())).withSelfRel().withType("GET");
+                pageable.getPageSize(), String.valueOf(pageable.getSort()))).withSelfRel();
         return assembler.toModel(peopleWithLinks, findAllLink);
     }
 

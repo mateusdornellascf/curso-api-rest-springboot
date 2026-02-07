@@ -5,6 +5,9 @@ import java.util.Objects;
 import java.util.Date;
 
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
+
+@Relation(collectionRelation = "books")
 
 public class BookDTO extends RepresentationModel<BookDTO> implements Serializable {
 
