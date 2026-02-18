@@ -1,4 +1,4 @@
-package br.com.mateusdornellascf.projeto_api_rest.integrationtests.dto.wrappers;
+package br.com.mateusdornellascf.projeto_api_rest.integrationtests.dto.wrappers.json;
 
 import java.io.Serializable;
 

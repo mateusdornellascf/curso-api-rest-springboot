@@ -3,21 +3,30 @@ package br.com.mateusdornellascf.projeto_api_rest.integrationtests.dto;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 import br.com.mateusdornellascf.projeto_api_rest.model.Person;
 
+@XmlRootElement(name = "Person")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class PersonDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @XmlElement
     private Long id;
+
     private String firstName;
     private String lastName;
     private String address;
     private String gender;
     private Boolean enabled;
 
-
-    public PersonDTO() {}
+    public PersonDTO() {
+    }
 
     public Long getId() {
         return id;
