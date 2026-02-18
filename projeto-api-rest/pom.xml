@@ -79,11 +79,11 @@
       <artifactId>jackson-dataformat-yaml</artifactId>
     </dependency>
 
-    <!-- MySQL DRIVER (OBRIGATÓRIO) -->
+    <!-- MySQL DRIVER -->
     <dependency>
       <groupId>com.mysql</groupId>
       <artifactId>mysql-connector-j</artifactId>
-      <version>9.1.0</version>
+      <version>8.3.0</version>
       <scope>runtime</scope>
     </dependency>
 
@@ -105,11 +105,17 @@
       <version>${dozer.version}</version>
     </dependency>
 
-
     <!-- Testes -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!--Mockito-->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
     
