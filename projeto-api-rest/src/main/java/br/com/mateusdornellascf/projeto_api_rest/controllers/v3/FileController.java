@@ -36,7 +36,7 @@ public class FileController implements FileControllerDocs {
 
         // http://localhost:8080/api/file/v1/downloadFile/filename.docx
         var fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/api/file/v1/downloadFile/")
+                .path("/api/file/v3/downloadFile/")
                 .path(fileName)
                 .toUriString();
 
