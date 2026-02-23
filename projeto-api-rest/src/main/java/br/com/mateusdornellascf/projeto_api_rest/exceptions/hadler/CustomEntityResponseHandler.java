@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.context.request.WebRequest;
+
+import br.com.mateusdornellascf.projeto_api_rest.exceptions.BadRequestException;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.ExceptionResponse;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.FileNotFoundException;
 import br.com.mateusdornellascf.projeto_api_rest.exceptions.FileStorageException;
@@ -39,6 +41,15 @@ public class CustomEntityResponseHandler extends ResponseEntityExceptionHandler 
     }
 
     @ExceptionHandler(RequiredObjectIsNullException.class)
+    public final ResponseEntity<ExceptionResponse> handleRequiredObjectExceptions(Exception ex, WebRequest request) {
+        ExceptionResponse response = new ExceptionResponse(
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false));
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(BadRequestException.class)
     public final ResponseEntity<ExceptionResponse> handleBadRequestExceptions(Exception ex, WebRequest request) {
         ExceptionResponse response = new ExceptionResponse(
                 new Date(),
