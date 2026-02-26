@@ -4,6 +4,9 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.hateoas.PagedModel;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.com.mateusdornellascf.projeto_api_rest.controllers.v3.docs.PersonControllerDocs;
 import br.com.mateusdornellascf.projeto_api_rest.data.dto.v3.PersonDTO;
@@ -91,6 +95,15 @@ public class PersonController implements PersonControllerDocs {
                                         MediaType.APPLICATION_YAML_VALUE })
         public PersonDTO create(@RequestBody PersonDTO person) {
                 return service.create(person);
+        }
+
+        @PostMapping(value = "/massCreation", produces = {
+                        MediaType.APPLICATION_JSON_VALUE,
+                        MediaType.APPLICATION_XML_VALUE,
+                        MediaType.APPLICATION_YAML_VALUE })
+        @Override
+        public List<PersonDTO> massCreation(@RequestParam("file") MultipartFile file) {
+                return service.massCreation(file);
         }
 
         @Override
